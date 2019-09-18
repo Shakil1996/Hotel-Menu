@@ -1,0 +1,279 @@
+Documentation
+
+Test Grid of Hotel Menu
+
+Author
+
+Mohammed Shakil Uddin
+ 
+Here is the Program Code
+package hotelmenu;
+import java.util.Scanner;
+/**
+ *
+ * @author Mohammed Shakil Uddin
+ * w1549747
+ */
+public class HotelMenu {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args)  
+{
+    Scanner Input = new Scanner (System.in);
+    String Option;
+    String roomName;
+    String deleteRoom;
+    int roomNumber = 0;
+
+    String[] hotel = new String[10];
+    initialise(hotel);
+    
+    while (roomNumber <10)
+        {
+        for (int x = 0; x < 10; x++)
+         {
+        if (hotel[x].equals("e")) System.out.println("Room " + x + " is Empty"); 
+         } 
+        
+    System.out.println("Enter A to Add Room for Guest");
+    System.out.println("Enter V to View all Rooms");
+    System.out.println("Enter E to Edit Room");
+    System.out.println("Enter D to Delete Room");
+    System.out.println("Enter F to Find Room");
+    System.out.println("Enter Z to Exit Program");
+    Option = Input.next();
+    
+    if ("A".equals(Option)) {
+    System.out.println("Enter A Room Number Between 0 - 9");            
+    roomNumber = Input.nextInt();
+    System.out.println("Enter The Name For That  Room  Number " + roomNumber + " :");
+    roomName = Input.next();
+    hotel[roomNumber] = roomName;
+    }
+    
+    if ("V".equals(Option)) {
+        for (int x = 0; x < 10; x++)
+                 {
+                System.out.println("Room " + x + " Occupied By: " + hotel[x]);
+                 }
+    }
+    
+    if ("E".equals(Option)) {
+    System.out.println("Enter A Room Number Between 0 - 9 That You Want To Change ");            
+    roomNumber = Input.nextInt();
+    System.out.println("Enter The New Name For That  Room  Number " + roomNumber + " :");
+    roomName = Input.next();
+    hotel[roomNumber] = roomName;
+    }
+    
+    if ("D".equals(Option)) {
+    System.out.println("Enter A Room Number Between 0 - 9");            
+    deleteRoom = Input.next();
+    hotel[roomNumber] = "e";
+    }
+    
+    if ("F".equals(Option)) {
+    System.out.println( "Which Room Do You Wish To See 0 - 9");            
+    roomNumber = Input.nextInt();
+    int x = roomNumber;
+                 {
+                System.out.println("Room " + x + " Occupied By: " + hotel[x]);
+                 }
+    }
+    
+    if ("Z".equals(Option)) {
+    System.out.println("Program Has Shut Down");
+    System.exit(roomNumber);
+    }
+    }    
+}    
+    
+    private static void initialise(String hotelRef[] ) 
+    {
+        for (int x = 0; x < 10; x++) hotelRef[x] = "e"; 
+        System.out.println("Initialise");    
+    }
+} 
+Test Grid Of Program
+
+Test 1	To show me how many rooms are available at the start of the program.	
+Once I have open to program it should start from 'room 0  is available' all the way to room 9.	
+
+Initialise
+Room 0 is Empty
+Room 1 is Empty
+Room 2 is Empty
+Room 3 is Empty
+Room 4 is Empty
+Room 5 is Empty
+Room 6 is Empty
+Room 7 is Empty
+Room 8 is Empty
+Room 9 is Empty	
+
+In the Actual results the program has displayed to me that the rooms from 0 to 9 are all 
+empty therefore this test is successful.
+
++20% A reasonable attempt at Add, View, Edit, and Delete using menu options
+
+
+Test 2	To give me the open to add, view, edit or delete rooms by using the menu options.	
+So once the program has initialised the rooms I should be able to see the menu option.	
+
+Enter A to Add Room for Guest
+Enter V to View all Rooms
+Enter E to Edit Room
+Enter D to Delete Room
+Enter F to Find Room
+Enter Z to Exit Program	
+
+So once the program has initialised the rooms for me, I was able to see the menu 
+option therefore this test is successful.
+
+
+Test 3	To allow me to add a customer into the system.	
+Once I enter 'A', the program should then ask question based on the room 
+such as the room number and guest name.	
+
+Enter A to Add Room for Guest
+Enter V to View all Rooms
+Enter E to Edit Room
+Enter D to Delete Room
+Enter F to Find Room
+Enter Z to Exit Program
+A
+Enter A Room Number Between 0 - 9
+1
+Enter The Name For That  Room  Number 1 :
+Shakil
+Room 0 is Empty
+Room 2 is Empty	
+
+So when I have entered 'A' I was given the option to select a room number between 0 - 9, 
+so I entered '1' for the room number. After that I was told to name that room, So I have given a name. 
+So now it shows that Room 0 and jumps to Room 2 are empty therefore Room 1 is being used by that name 
+meaning that this test is success.
+
+
+Test 4	
+This test should allow me to see all of the rooms whether or not they are occupied or not.	
+So the expected result should be that when I enter the letter 'V' into the current program running, 
+it should display me that room 1 is being used by 'Shakil' and the remaining room should be empty. 
+	
+Enter A to Add Room for Guest
+Enter V to View all Rooms
+Enter E to Edit Room
+Enter D to Delete Room
+Enter F to Find Room
+Enter Z to Exit Program
+V
+Room 0 Occupied By: e
+Room 1 Occupied By: Shakil
+Room 2 Occupied By: e
+Room 3 Occupied By: e
+Room 4 Occupied By: e
+Room 5 Occupied By: e
+Room 6 Occupied By: e
+Room 7 Occupied By: e
+Room 8 Occupied By: e
+Room 9 Occupied By: e	
+
+The actual results display that once the letter 'V' was entered to the program, it has 
+displayed all the program that the program has and it tells me that rooms Occupied by e 
+are empty and Room 1 is being used by 'Shakil' therefore this test was successful.
+
+
+Test 5	This test should allow me to edit any of the rooms I wish to edit by entering 'E' 
+into the program.	
+So the expected results should be that once I have Entered the letter 'E' 
+it should allow me to select which room information I want to change, and give it a new name.	
+
+Enter A to Add Room for Guest
+Enter V to View all Rooms
+Enter E to Edit Room
+Enter D to Delete Room
+Enter F to Find Room
+Enter Z to Exit Program
+E
+Enter A Room Number Between 0 - 9 That You Want To Change
+1
+Enter The New Name For That  Room  Number 1 :
+Mohammed
+Room 0 is Empty
+Room 2 is Empty	
+
+When I have entered the letter 'E' the program has asked me to select 
+a number between room 0 - 9 that I want to change, so I have pick '1' since 'Shakil' was 
+using this room. After that the program has asked me to add a new name for this room, 
+which then stored that new name into room 1 therefore test for this was successful.
+
+
+Test 6	This test should allow me to delete any of the information that was stored in 
+that rooms, therefore by entering the letter 'D' I should be able to erase the information in that room.	
+So the Expected result should be that once I have entered the letter 'D', the program should ask 
+me which room I wish to delete, and once I select that room, the room should be empty.	
+
+Enter A to Add Room for Guest
+Enter V to View all Rooms
+Enter E to Edit Room
+Enter D to Delete Room
+Enter F to Find Room
+Enter Z to Exit Program
+D
+Enter A Room Number Between 0 - 9
+1
+Room 0 is Empty
+Room 1 is Empty
+Room 2 is Empty	
+
+When I have entered the letter 'D' to delete a room, the program has 
+asked me to select a room that I wish to delete, so knowing that room 
+1 was stored with information, I have selected that room, so the end result 
+was that Room 1 is Empty therefore this test was successful.
+
++10% Implement the ‘Find’ option.
+
+
+Test 7	This test should allow me to find any room that I want. Also with this, 
+it should display me the information that is stored within this room.	
+So the Expected result should be that once I have entered the letter 'F' 
+the program will then ask me a question to select which room do I want to see. 
+So once I have selected the room number, it should tell me whether or not the 
+room is occupied or not.
+	
+Enter A to Add Room for Guest
+Enter V to View all Rooms
+Enter E to Edit Room
+Enter D to Delete Room
+Enter F to Find Room
+Enter Z to Exit Program
+F
+Which Room Do You Wish To See 0 - 9
+1
+Room 1 Occupied By: e	
+
+When I have entered the letter 'F' to find a room, the program 
+did ask me to select a number between 0 - 9, so once I have selected a number, it has 
+displayed to me that the rooms information of the number I selected, therefore this test 
+was successful.
+
+
+Test 8	This test Should allow me to Exit the program but Entering 'Z' into the program.	
+So the Expected result should be that once I enter 'Z' the program should 
+tell me that the program has been shut down.	
+
+Enter A to Add Room for Guest
+Enter V to View all Rooms
+Enter E to Edit Room
+Enter D to Delete Room
+Enter F to Find Room
+Enter Z to Exit Program
+Z
+Program Has Shut Down
+BUILD SUCCESSFUL (total time: 2 seconds)	
+
+When I have entered the letter 'Z' to close the program, the program displayed, 
+'Program Has Shut  Down' Therefore this test was successful.
+	
